@@ -2,6 +2,12 @@
 
 <ul>
   <% @kpts.each do |kpt| %>
-    <li><%= kpt.title %></li>
+    <li>
+      <%= kpt.title %>
+      <%= link_to "Edit", edit_kpt_path(kpt.id) %>
+    </li>
   <% end %>
 </ul>
+
+<p><%= link_to "Top", kpts_path %></p>
+<p><%= link_to "New KPT Project", new_kpt_path %></p>
