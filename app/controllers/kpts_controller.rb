@@ -52,9 +52,9 @@ class KptsController < ApplicationController
   def kpt_params
     params.require(:kpt).permit(
       :title,
-      keep_items_attributes: [:title, :description],
-      problem_items_attributes: [:title, :description],
-      try_items_attributes: [:title, :description, :checked]
+      keep_items_attributes: [:id, :title, :description, :_destroy],
+      problem_items_attributes: [:id, :title, :description, :_destroy],
+      try_items_attributes: [:id, :title, :description, :checked, :_destroy]
     )
   end
 end

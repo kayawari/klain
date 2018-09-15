@@ -1,23 +1,31 @@
 <h1><%= @kpt.title %></h1>
 
+<p>Keep</p>
 <ul>
   <% @kpt.keep_items.each do |keep| %>
     <li>
       <%= keep.title %>
-      <%= keep.description %>
+      <small><%= keep.description %></small>
     </li>
   <% end %>
+</ul>
+
+<p>Problem</p>
+<ul>
   <% @kpt.problem_items.each do |problem| %>
     <li>
       <%= problem.title %>
-      <%= problem.description %>
+      <small><%= problem.description %></small>
     </li>
   <% end %>
+</ul>
+
+<p>Try</p>
+<ul>
   <% @kpt.try_items.each do |try| %>
     <li>
       <%= try.title %>
-      <%= try.description %>
-      <%= try.checked %>
+      <small><%= try.description %></small>
     </li>
   <% end %>
 </ul>

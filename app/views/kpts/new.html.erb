@@ -1,35 +1,42 @@
 <h1>KPT new</h1>
 
-<%= form_for(@kpt) do |f| %>
+<%= form_for @kpt do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
   <br>
-  <%= f.label :keep_items, "Keep" %>
-  <%= f.fields_for :keep_items do |keep_item_form| %>
-    <%= keep_item_form.label :title,"タイトル" %>
-    <%= keep_item_form.text_field :title %>
-    <%= keep_item_form.label :title,"詳細" %>
-    <%= keep_item_form.text_field :description %>
-  <% end %>
+  <br>
+  <div id="keep_items">
+    <%= f.label :keep_items, "Keep" %>
+    <%= f.fields_for :keep_items do |keep_item_form| %>
+      <%= render 'keep_item_fields', f: keep_item_form %>
+      <div class="links">
+        <%= link_to_add_association 'add keep', f, :keep_items %>
+      </div>
+    <% end %>
+  </div>
 
   <br>
-  <%= f.label :problem_items, "Problem" %>
-  <%= f.fields_for :problem_items do |problem_item_form| %>
-    <%= problem_item_form.label :title,"タイトル" %>
-    <%= problem_item_form.text_field :title %>
-    <%= problem_item_form.label :title,"詳細" %>
-    <%= problem_item_form.text_field :description %>
-  <% end %>
+  <div id="problem_items">
+    <%= f.label :problem_items, "Problem" %>
+    <%= f.fields_for :problem_items do |problem_item_form| %>
+      <%= render 'problem_item_fields', f: problem_item_form %>
+      <div class="links">
+        <%= link_to_add_association 'add problem', f, :problem_items %>
+      </div>
+    <% end %>
+  </div>
 
   <br>
-  <%= f.label :try_items, "Try" %>
-  <%= f.fields_for :try_items do |try_item_form| %>
-    <%= try_item_form.label :title,"タイトル" %>
-    <%= try_item_form.text_field :title %>
-    <%= try_item_form.label :title,"詳細" %>
-    <%= try_item_form.text_field :description %>
-  <% end %>
+  <div id="try_items">
+    <%= f.label :try_items, "Try" %>
+    <%= f.fields_for :try_items do |try_item_form| %>
+      <%= render 'try_item_fields', f: try_item_form %>
+      <div class="links">
+        <%= link_to_add_association 'add try', f, :try_items %>
+      </div>
+    <% end %>
+  </div>
 
   <%= f.submit "Create" %>
 <% end %>
