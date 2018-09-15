@@ -4,5 +4,32 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
+  <br>
+  <%= f.label :keep_items, "Keep" %>
+  <%= f.fields_for :keep_items do |keep_item_form| %>
+    <%= keep_item_form.label :title,"タイトル" %>
+    <%= keep_item_form.text_field :title %>
+    <%= keep_item_form.label :title,"詳細" %>
+    <%= keep_item_form.text_field :description %>
+  <% end %>
+
+  <br>
+  <%= f.label :problem_items, "Problem" %>
+  <%= f.fields_for :problem_items do |problem_item_form| %>
+    <%= problem_item_form.label :title,"タイトル" %>
+    <%= problem_item_form.text_field :title %>
+    <%= problem_item_form.label :title,"詳細" %>
+    <%= problem_item_form.text_field :description %>
+  <% end %>
+
+  <br>
+  <%= f.label :try_items, "Try" %>
+  <%= f.fields_for :try_items do |try_item_form| %>
+    <%= try_item_form.label :title,"タイトル" %>
+    <%= try_item_form.text_field :title %>
+    <%= try_item_form.label :title,"詳細" %>
+    <%= try_item_form.text_field :description %>
+  <% end %>
+
   <%= f.submit "Create" %>
 <% end %>

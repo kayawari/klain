@@ -9,6 +9,9 @@ class KptsController < ApplicationController
 
   def new
     @kpt = Kpt.new
+    @kpt.keep_items.build
+    @kpt.problem_items.build
+    @kpt.try_items.build
   end
 
   def create
@@ -47,6 +50,11 @@ class KptsController < ApplicationController
 
   private
   def kpt_params
-    params.require(:kpt).permit(:title)
+    params.require(:kpt).permit(
+      :title,
+      keep_items_attributes: [:title, :description],
+      problem_items_attributes: [:title, :description],
+      try_items_attributes: [:title, :description, :checked]
+    )
   end
 end

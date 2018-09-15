@@ -1,2 +1,25 @@
 <h1><%= @kpt.title %></h1>
+
+<ul>
+  <% @kpt.keep_items.each do |keep| %>
+    <li>
+      <%= keep.title %>
+      <%= keep.description %>
+    </li>
+  <% end %>
+  <% @kpt.problem_items.each do |problem| %>
+    <li>
+      <%= problem.title %>
+      <%= problem.description %>
+    </li>
+  <% end %>
+  <% @kpt.try_items.each do |try| %>
+    <li>
+      <%= try.title %>
+      <%= try.description %>
+      <%= try.checked %>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to "Delete this KPT project", kpt_path(@kpt.id), method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>

@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_09_15_130325) do
   create_table "try_items", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.boolean "checked", null: false
+    t.boolean "checked", default: false, null: false
     t.bigint "kpt_id"
     t.index ["kpt_id"], name: "index_try_items_on_kpt_id"
   end
