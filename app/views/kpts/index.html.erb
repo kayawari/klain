@@ -4,6 +4,7 @@
   <% @kpts.each do |kpt| %>
     <li>
       <%= kpt.title %>
+      <%= link_to "Show", kpt_path(kpt.id) %>
       <%= link_to "Edit", edit_kpt_path(kpt.id) %>
     </li>
   <% end %>

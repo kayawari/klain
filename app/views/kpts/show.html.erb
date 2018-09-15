@@ -1,0 +1,2 @@
+<h1><%= @kpt.title %></h1>
+<%= link_to "Delete this KPT project", kpt_path(@kpt.id), method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>

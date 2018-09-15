@@ -3,6 +3,10 @@ class KptsController < ApplicationController
     @kpts = Kpt.all
   end
 
+  def show
+    @kpt = Kpt.find(params[:id])
+  end
+
   def new
     @kpt = Kpt.new
   end
@@ -28,6 +32,16 @@ class KptsController < ApplicationController
     else
       flash[:alert] = "Failed to update KPT project"
       render :new
+    end
+  end
+
+  def destroy
+    kpt = Kpt.find(params[:id])
+    if kpt.destroy
+      redirect_to kpts_path, notice: "Success delete KPT Project"
+    else
+      flash[:alert] = "Failed to delete KPT project"
+      render :index
     end
   end
 
