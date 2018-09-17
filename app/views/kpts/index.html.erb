@@ -1,6 +1,7 @@
 <h1>KPT index</h1>
 
 <ul>
+  <%= render "layouts/flash_error", object: @kpts %>
   <% @kpts.each do |kpt| %>
     <li>
       <%= kpt.title %>
