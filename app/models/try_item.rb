@@ -1,3 +1,4 @@
-class TryItem < ActiveRecord::Base
+class TryItem < ApplicationRecord
   belongs_to :kpt
+  include CommonKptItemValidator
 end
