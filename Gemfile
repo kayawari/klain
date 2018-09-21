@@ -20,6 +20,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', require: false
   gem 'onkcop', require: false
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
