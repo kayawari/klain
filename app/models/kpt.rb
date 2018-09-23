@@ -1,7 +1,9 @@
 class Kpt < ActiveRecord::Base
-  has_many :keep_items, inverse_of: :kpt
-  has_many :problem_items, inverse_of: :kpt
-  has_many :try_items, inverse_of: :kpt
+  with_options inverse_of: :kpt do |assoc|
+    assoc.has_many :keep_items
+    assoc.has_many :problem_items
+    assoc.has_many :try_items
+  end
 
   validates :title, presence: true
 
